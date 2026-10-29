@@ -1,0 +1,50 @@
+{
+  "agent": "blue_defence_policy_assistant",
+  "dataset_name": "clearance-validity",
+  "story": "You are a Blue Defence engineer whose SECRET security clearance is due for renewal. You want to know how long a SECRET clearance is valid under the current security clearance policy.",
+  "starting_sentence": "How long is a SECRET security clearance valid?",
+  "goals": {
+    "find_current_policies_filter": [
+      "search_with_filter"
+    ],
+    "search_with_filter": [
+      "answer"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_current_policies_filter",
+      "tool_name": "openrag_search_knowledge_filters",
+      "args": {
+        "query": "Current policies"
+      },
+      "arg_matching": {
+        "query": "fuzzy"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_with_filter",
+      "tool_name": "openrag_search",
+      "args": {
+        "query": "SECRET security clearance validity",
+        "limit": 5,
+        "filter_id": "CURRENT_POLICIES_FILTER_ID"
+      },
+      "arg_matching": {
+        "query": "ignore",
+        "limit": "ignore",
+        "filter_id": "strict"
+      }
+    },
+    {
+      "type": "text",
+      "name": "answer",
+      "response": "A SECRET security clearance is valid for 5 years, from security-clearance-policy-2026.docx.",
+      "keywords": [
+        "5 years"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+# Questions the labs ask, with the facts each answer must contain.
+#
+#   scripts/openrag.py check                  every question
+#   scripts/openrag.py check --group kb       one group
+#
+# group     when the question applies
+#   kb        after Lab 1 step 2 (the blue-defence-knowledge-base folder is ingested)
+#   filters   after Lab 2 step 4 (the Current policies filter exists)
+#   ocr-off   after Lab 1 step 4 (the scanned memo is ingested with OCR off)
+#   ocr       after Lab 1 step 5 (the scanned memo is ingested again with OCR on)
+# expect    every inner list must have one alternative in the answer (case-insensitive)
+# reject    none of these may appear in the answer
+# observe   true: print the answer for discussion; never fails
+# source    the file the answer comes from; the check reports whether the agent cited it
+
+questions:
+  - id: usv-torque
+    group: kb
+    lab: 2
+    question: What torque should the Sentinel-7 propulsion pod mounting bolts be tightened to?
+    expect: [["85 N·m", "85 Nm", "85 newton"]]
+    source: sentinel-7-maintenance-manual.pdf
+    shows: a value from a table on page 2 of a PDF
+
+  - id: halcyon-supplier
+    group: kb
+    lab: 2
+    question: Which supplier is behind the Project HALCYON delay, and when does its contract expire?
+    expect: [["Volta Marine Energy"], ["2027-06-30", "30 June 2027", "June 30, 2027"]]
+    source: approved-suppliers.csv
+    shows: an answer that joins two documents (the status deck names the supplier, the CSV holds the contract)
+
+  - id: out-of-scope
+    group: kb
+    lab: 2
+    question: What is Blue Defence's policy on working from home?
+    expect: [["no relevant", "does not contain", "no information", "not found", "not be found", "couldn't find", "could not find"]]
+    shows: no document covers the question, so the agent says so instead of answering
+
+  - id: clearance-unfiltered
+    group: kb
+    lab: 2
+    question: How long is a SECRET security clearance valid?
+    observe: true
+    source: security-clearance-policy-2026.docx
+    shows: both revisions of the security clearance policy are in the knowledge base (7 years in 2024, 5 years in 2026), so the answer can quote either or both
+
+  - id: clearance-current
+    group: filters
+    lab: 2
+    filter: Current policies
+    question: How long is a SECRET security clearance valid?
+    expect: [["5 years", "five years"]]
+    reject: ["7 years"]
+    source: security-clearance-policy-2026.docx
+    shows: the Current policies filter leaves out the superseded 2024 revision
+
+  - id: incident-reporting-current
+    group: filters
+    lab: 2
+    filter: Current policies
+    question: Within how many hours of discovery must a security incident be reported?
+    expect: [["24 hours", "twenty-four hours"]]
+    reject: ["72 hours"]
+    source: security-clearance-policy-2026.docx
+
+  - id: filter-scope
+    group: filters
+    lab: 2
+    filter: Current policies
+    question: What torque should the Sentinel-7 propulsion pod mounting bolts be tightened to?
+    expect: [["no relevant", "does not contain", "no information", "not found", "not be found", "couldn't find", "could not find"]]
+    reject: ["85"]
+    shows: the filter limits retrieval to its data sources, so a question answered only by the maintenance manual has no source
+
+  - id: multilingual-clearance
+    group: filters
+    lab: 2
+    filter: Current policies
+    question: 机密级(SECRET)安全许可的有效期是多久?
+    expect: [["5 年", "5年", "五年", "5 years"]]
+    reject: ["7 年", "7年", "七年", "7 years"]
+    source: security-clearance-policy-2026.docx
+    shows: a question in Chinese answered from an English document by the multilingual embedding model
+
+  - id: inspection-ocr-off
+    group: ocr-off
+    lab: 1
+    question: What corrective actions did site inspection INS-2026-031 at Kestrel Point require, and by when?
+    reject: ["31 August"]
+    shows: with OCR off, the scanned memo is ingested without text, so the agent cannot answer
+
+  - id: inspection-ocr-on
+    group: ocr
+    lab: 1
+    question: What corrective actions did site inspection INS-2026-031 at Kestrel Point require, and by when?
+    expect: [["Hangar 2"], ["31 August 2026", "August 31, 2026"], ["signage"]]
+    source: site-inspection-memo-2026-08-14.pdf
+    shows: with OCR on, the same memo is ingested with its text

@@ -1,0 +1,9 @@
+supplier_id,supplier,category,contract_no,contract_expiry,contact_email
+SUP-014,Volta Marine Energy Pte Ltd,Lithium battery modules,BD/C/2024/118,2027-06-30,sales@volta-marine.example
+SUP-022,Halyard Composites Pte Ltd,Hull fabrication,BD/C/2023/077,2026-12-31,projects@halyard.example
+SUP-031,Bluefin Sensors Ltd,Radar and sonar units,BD/C/2025/009,2028-03-31,contracts@bluefin.example
+SUP-037,Meridian Satcom Pte Ltd,Satellite communications,BD/C/2025/041,2027-09-30,support@meridian-satcom.example
+SUP-045,Ironbark Fasteners,Marine-grade fasteners,BD/C/2024/203,2026-11-30,orders@ironbark.example
+SUP-052,Northlight Data Centres,Colocation services,BD/C/2022/150,2027-01-31,accounts@northlight.example
+SUP-058,Tidewater Training Services,Operator training,BD/C/2025/066,2026-10-31,bookings@tidewater.example
+SUP-063,Copperleaf Electrical,Shore power installation,BD/C/2023/190,2027-04-30,jobs@copperleaf.example

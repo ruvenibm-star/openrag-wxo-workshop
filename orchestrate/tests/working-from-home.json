@@ -1,0 +1,32 @@
+{
+  "agent": "blue_defence_policy_assistant",
+  "dataset_name": "working-from-home",
+  "story": "You are a Blue Defence employee who wants to know the company's policy on working from home. If the agent says it has no information, accept that and end the conversation.",
+  "starting_sentence": "What is Blue Defence's policy on working from home?",
+  "goals": {
+    "search": [
+      "answer"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "search",
+      "tool_name": "openrag_search",
+      "args": {
+        "query": "working from home policy",
+        "limit": 5
+      },
+      "arg_matching": {
+        "query": "ignore",
+        "limit": "ignore"
+      }
+    },
+    {
+      "type": "text",
+      "name": "answer",
+      "response": "The knowledge base has no information on a working-from-home policy.",
+      "keywords": []
+    }
+  ]
+}

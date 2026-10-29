@@ -1,0 +1,23 @@
+{
+  "name": "All Blue Defence documents",
+  "description": "The five blue-defence-knowledge-base documents, for tuning the response limit in Lab 2.",
+  "queryData": {
+    "query": "",
+    "filters": {
+      "data_sources": [
+        "approved-suppliers.csv",
+        "project-status-q3-2026.pptx",
+        "sentinel-7-maintenance-manual.pdf",
+        "security-clearance-policy-2024.docx",
+        "security-clearance-policy-2026.docx"
+      ],
+      "document_types": ["*"],
+      "owners": ["*"],
+      "connector_types": ["*"]
+    },
+    "limit": 10,
+    "scoreThreshold": 0,
+    "color": "blue",
+    "icon": "file"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "agent": "blue_defence_policy_assistant",
+  "dataset_name": "bolt-torque",
+  "story": "You are a Blue Defence maintenance technician servicing a Sentinel-7 unmanned surface vessel. You want the tightening torque for the propulsion pod mounting bolts.",
+  "starting_sentence": "What torque should the Sentinel-7 propulsion pod mounting bolts be tightened to?",
+  "goals": {
+    "search": [
+      "answer"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "search",
+      "tool_name": "openrag_search",
+      "args": {
+        "query": "Sentinel-7 propulsion pod mounting bolt torque",
+        "limit": 5
+      },
+      "arg_matching": {
+        "query": "ignore",
+        "limit": "ignore"
+      }
+    },
+    {
+      "type": "text",
+      "name": "answer",
+      "response": "Tighten the Sentinel-7 propulsion pod mounting bolts to 85 N·m, from sentinel-7-maintenance-manual.pdf.",
+      "keywords": [
+        "85"
+      ]
+    }
+  ]
+}

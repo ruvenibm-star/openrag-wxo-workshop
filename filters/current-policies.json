@@ -1,0 +1,19 @@
+{
+  "name": "Current policies",
+  "description": "Blue Defence policies in force. Leaves out the archive folder, so superseded revisions are not retrieved.",
+  "queryData": {
+    "query": "",
+    "filters": {
+      "data_sources": [
+        "security-clearance-policy-2026.docx"
+      ],
+      "document_types": ["*"],
+      "owners": ["*"],
+      "connector_types": ["*"]
+    },
+    "limit": 10,
+    "scoreThreshold": 0,
+    "color": "green",
+    "icon": "file"
+  }
+}
