@@ -52,9 +52,6 @@ Under each answer:
 
 ![Asking in Chat, opening the source card and the function call](images/lab-2/chat-citation.gif)
 
-The HALCYON answer can come back without source cards even when it is right; the function call still
-shows the chunks it used.
-
 ## 3. Ask about a policy with two revisions
 
 Ask: **How long is a SECRET security clearance valid?**
