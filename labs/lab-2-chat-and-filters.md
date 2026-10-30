@@ -11,8 +11,7 @@ step 6, [uv](https://docs.astral.sh/uv/) installed.
 
 **Chat** runs **OpenRAG OpenSearch Agent Flow**, a Langflow flow that the rest of this lab tests and tunes.
 **Settings** > **Langflow** > **Agent** > **Edit in Langflow** opens it in Langflow, at
-<https://openrag-lf-cpd.apps.itz-lfbzmf.infra01-lb.tok04.techzone.ibm.com>. Do not open it there during the
-workshop: the editor saves the flow within seconds and drops the binding of the Text Input below, and
+<https://openrag-lf-cpd.apps.itz-lfbzmf.infra01-lb.tok04.techzone.ibm.com>. The editor saves the flow within seconds and drops the binding of the Text Input below, and
 **Chat** then ignores knowledge filters, which steps 4 and 5 use. The flow looks like this:
 
 ![The OpenRAG OpenSearch Agent Flow in Langflow](images/lab-2/langflow-agent-flow.png)
