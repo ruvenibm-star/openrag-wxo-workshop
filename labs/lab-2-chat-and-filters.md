@@ -26,8 +26,7 @@ step 6, [uv](https://docs.astral.sh/uv/) installed.
 | Other tools | MCP Tools (the URL ingestion flow), the Calculator, and a search tool added for a separate demo. |
 
 The system prompt tells the agent to retrieve when unsure, to cite chunk IDs, and to say "No relevant
-supporting sources were found" when nothing matches. Step 2 tests that behaviour; steps 4 to 6 change what
-reaches the OpenSearch component through `filter_expression`.
+supporting sources were found" when nothing matches. 
 
 ## 2. Ask questions across formats
 
