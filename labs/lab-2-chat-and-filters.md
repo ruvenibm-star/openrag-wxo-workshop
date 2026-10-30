@@ -52,17 +52,7 @@ Under each answer:
 
 ![Asking in Chat, opening the source card and the function call](images/lab-2/chat-citation.gif)
 
-## 3. Ask about a policy with two revisions
-
-Ask: **How long is a SECRET security clearance valid?**
-
-The answer quotes 7 years, 5 years, or both. The knowledge base holds Revision 1 of the security clearance
-policy (2024, 7 years) in the `archive` folder and Revision 2 (2026, 5 years) in `policies`, and both chunks
-match the question. Search has no notion of which revision is current.
-
-![Without a filter, chat quotes both revisions](images/lab-2/chat-clearance-unfiltered.jpg)
-
-## 4. Create a knowledge filter
+## 3. Create a knowledge filter
 
 1. Click **Knowledge**, then **+** next to **Knowledge Filters** in the left sidebar. The **Knowledge
    Filter** panel opens on the right.
@@ -76,7 +66,7 @@ match the question. Search has no notion of which revision is current.
 
 [`../filters/current-policies.json`](../filters/current-policies.json) holds the same definition.
 
-## 5. Ask again with the filter
+## 4. Ask again with the filter
 
 1. Start a new chat with **+** next to **Conversations**, click the filter icon at the left of the
    question box, and select **Current policies**. The question box shows **Current policies** until you
@@ -98,7 +88,7 @@ match the question. Search has no notion of which revision is current.
 A filter applied in **Chat** lasts for that chat session. Filters also narrow the document list on the
 **Knowledge** page, which is a quick way to check what a filter includes.
 
-## 6. Tune retrieval
+## 5. Tune retrieval
 
 A knowledge filter also sets how many chunks a search returns (**response limit**) and the lowest score a
 chunk needs to be returned (**score threshold**). The filter applies them wherever it is used: in **Chat**,
