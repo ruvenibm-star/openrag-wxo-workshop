@@ -35,7 +35,6 @@ Open **Chat** and ask each question.
 | Question | Answer contains | From |
 |---|---|---|
 | What torque should the Sentinel-7 propulsion pod mounting bolts be tightened to? | 85 N·m | Torque table on page 2 of the maintenance manual (PDF) |
-| Which supplier is behind the Project HALCYON delay, and when does its contract expire? | Volta Marine Energy; 30 June 2027 | The status deck (PowerPoint) names the supplier; the supplier register (CSV) holds the contract |
 | What is Blue Defence's policy on working from home? | That no source covers it, in wording that varies: "No relevant supporting sources were found" or "could not be found in the provided search results" | No document covers it |
 
 The last question checks that the agent says it has no source instead of inventing an answer.
