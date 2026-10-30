@@ -68,25 +68,7 @@ In **Knowledge**, click **⋮** at the end of each document's row below, then **
 Consecutive chunks overlap by up to 200 characters, so the end of one chunk repeats at the start of the
 next. The chunk list is not in page order.
 
-## 4. Upload the scanned memo with OCR off
-
-`sample-docs/scanned/site-inspection-memo-2026-08-14.pdf` is a photographed page: the PDF holds an image
-and no text.
-
-OCR is on by default on this instance, and the setting applies to every user of the instance.
-
-1. Open **Settings** > **Langflow** > **Knowledge Ingest**, switch **OCR** off and click
-   **Save Ingest Settings**.
-2. Click **Knowledge**, click the arrow next to **Add knowledge**, then **File**, and select the memo.
-3. Open **Tasks** and expand the task. It fails with **The file appears corrupted or invalid and cannot be
-   processed. Upload a valid file.**, flagged by Docling. The reason that the API and
-   `scripts/openrag.py` report is `No text content could be extracted from document`: Docling
-   found no text layer and OCR was off. **Knowledge** lists the memo with the status **Failed** and no
-   chunks.
-
-![The failed memo task with OCR off](images/lab-1/tasks-memo-failed-ocr-off.jpg)
-
-## 5. Upload it again with OCR on
+## 4. Upload it again with OCR on
 
 1. Switch **OCR** back on in **Settings** > **Langflow** > **Knowledge Ingest** and click
    **Save Ingest Settings**. Leave it on for the rest of the workshop.
@@ -103,7 +85,7 @@ OCR is on by default on this instance, and the setting applies to every user of 
 
 OCR makes ingestion slower, and picture descriptions (which need OCR) make it more expensive.
 
-## 6. What the index holds
+## 5. What the index holds
 
 OpenRAG stores each chunk as one document in the OpenSearch index `orag-documents`, with these fields:
 
@@ -123,15 +105,6 @@ field, so after a model change, older chunks keep the old model's vectors until 
 
 `scripts/openrag.py files` lists the chunk count, owner and connector of each document your account
 can see.
-
-## Points to discuss
-
-- Ingestion settings apply only to documents uploaded after the change. Changing the embedding model
-  does not re-embed existing documents; to move to a new model, delete and upload them again.
-- The embedding model on this instance accepts at most 512 tokens per chunk. Keep the chunk size at or
-  below the 1,000-character default.
-- A failed task is visible in **Tasks** with its reason. Check it after every bulk upload. The message
-  in **Tasks** names the symptom; the task's error in the API names the cause.
 
 ---
 
