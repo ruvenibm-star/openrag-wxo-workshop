@@ -68,10 +68,6 @@ In **Knowledge**, click **⋮** at the end of each document's row below, then **
 Consecutive chunks overlap by up to 200 characters, so the end of one chunk repeats at the start of the
 next. The chunk list is not in page order.
 
-PowerPoint files are not on the supported file types list in the watsonx.data 2.4.x documentation, but
-the upload dialog accepts them and this instance ingests them. With OCR on, the
-dialog also accepts images (.png, .jpg, .tiff, .bmp, .webp).
-
 ## 4. Upload the scanned memo with OCR off
 
 `sample-docs/scanned/site-inspection-memo-2026-08-14.pdf` is a photographed page: the PDF holds an image
