@@ -52,7 +52,7 @@ Under each answer:
 
 ![Asking in Chat, opening the source card and the function call](images/lab-2/chat-citation.gif)
 
-### 3. Controlling Retrieval
+## 3. Controlling Retrieval
 
 So far, we have looked at how OpenRAG retrieves relevant information from the knowledge base and uses that information as context when generating a response.
 
