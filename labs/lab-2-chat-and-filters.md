@@ -52,7 +52,46 @@ Under each answer:
 
 ![Asking in Chat, opening the source card and the function call](images/lab-2/chat-citation.gif)
 
+### 3. Controlling Retrieval
 
+So far, we have looked at how OpenRAG retrieves relevant information from the knowledge base and uses that information as context when generating a response.
+
+An important part of a RAG solution is being able to control **what information is considered during retrieval**.
+
+This is where **Knowledge Filters** can be useful.
+
+Knowledge Filters allow us to scope retrieval to a particular subset of the knowledge available to OpenRAG. Rather than every query searching across everything that has been ingested, retrieval can be restricted to the sources that are relevant for a particular use case.
+
+This becomes particularly useful as the knowledge base grows and contains information across different domains, projects, document categories or other logical groupings.
+
+The underlying content does not need to change. Instead, the filter determines the scope of knowledge that is considered during retrieval.
+
+Knowledge Filters can also be used together with retrieval settings such as:
+
+- **Response limit** — controls the maximum number of chunks returned by the search.
+- **Score threshold** — controls the minimum search score required for a chunk to be returned.
+
+These settings influence how much retrieved context is ultimately made available to the model.
+
+The **response limit** is particularly important because enterprise questions may require information from multiple pieces of content. If the limit is too restrictive, relevant information may fall outside the results returned to the model.
+
+The **score threshold** provides another level of control by determining the minimum relevance required before retrieved content is included.
+
+Another important consideration is that retrieval is influenced by the **query itself**. Different ways of expressing the same underlying question can result in different chunks being retrieved or ranked differently.
+
+In **Chat**, OpenRAG can formulate a search query based on the user's question. The retrieval process then identifies and ranks relevant chunks, and those retrieved chunks provide the context used by the model to generate its answer.
+
+So overall, there are several layers influencing what ultimately reaches the model:
+
+1. **Knowledge base content** determines what information is available.
+2. **Knowledge Filters** determine the scope of knowledge considered during retrieval.
+3. **Retrieval settings** influence which and how many chunks are returned.
+4. **The search query** influences the relevance and ranking of those chunks.
+5. **Retrieved context** provides the grounding used by the model when generating its response.
+
+The key point is that RAG is not simply about loading documents and asking questions. We also have mechanisms to control and tune the retrieval process so that the model receives the most appropriate context for the task.
+
+> **Note:** Knowledge Filters should be viewed as a retrieval control rather than an access-control mechanism. They determine what information is considered during retrieval; authorization and access control should be managed separately.
 ---
 
 Next: [Lab 3: Agents over MCP](lab-3-agents-over-mcp.md)
