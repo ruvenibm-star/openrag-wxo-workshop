@@ -4,8 +4,7 @@
 chose answers sit in tables, slides and spreadsheets, then tune retrieval: a knowledge filter fixes a
 conflict between two policy revisions, and the response limit decides which chunks reach the model.
 
-**You need:** Lab 1 finished, so that your knowledge base holds the `blue-defence-knowledge-base` documents. For
-step 6, [uv](https://docs.astral.sh/uv/) installed.
+**You need:** Lab 1 finished, so that your knowledge base holds the `blue-defence-knowledge-base` documents. 
 
 ## 1. The agent flow in Langflow
 
