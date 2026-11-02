@@ -1,6 +1,6 @@
 # Lab 1: Ingestion
 
-40 minutes. You follow documents through ingestion in the order OpenRAG processes them:
+20 minutes. You follow documents through ingestion in the order OpenRAG processes them:
 Docling parses the Blue Defence documents, splits them into chunks, and reads a scanned
 memo only with OCR on; the embedding model turns each chunk into a vector; and OpenSearch indexes the chunk
 with its metadata.
