@@ -1,6 +1,6 @@
 # Lab 3: Agents over MCP
 
-20 minutes. You call OpenRAG's MCP tools the way an agent does, with your own account and
+10 minutes. You call OpenRAG's MCP tools the way an agent does, with your own account and
 your own Lab 2 filter: search, look up a knowledge filter, and search with it. This lab ends the OpenRAG part
 of the workshop; Labs 4 to 6 build agents in watsonx Orchestrate on these tools.
 
